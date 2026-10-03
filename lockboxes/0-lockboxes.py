@@ -3,22 +3,16 @@
 
 
 def canUnlockAll(boxes):
-    """Return True if all boxes can be opened, otherwise False."""
-    opened = set()
+    """Return True if all boxes can be opened."""
+    opened = {0}
+    to_check = [0]
 
-    def open_box(box_index):
-        """Recursively open reachable boxes."""
-        if box_index in opened:
-            return
+    while to_check:
+        box = to_check.pop()
 
-        if box_index < 0 or box_index >= len(boxes):
-            return
-
-        opened.add(box_index)
-
-        for key in boxes[box_index]:
-            open_box(key)
-
-    open_box(0)
+        for key in boxes[box]:
+            if key < len(boxes) and key not in opened:
+                opened.add(key)
+                to_check.append(key)
 
     return len(opened) == len(boxes)
