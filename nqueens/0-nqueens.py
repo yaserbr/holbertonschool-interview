@@ -6,7 +6,7 @@ import sys
 
 
 def is_safe(queens, row, col):
-    """Check if a queen can be placed at the given position."""
+    """Check whether a queen can be placed safely."""
     for r, c in queens:
         if c == col or abs(r - row) == abs(c - col):
             return False
@@ -14,7 +14,7 @@ def is_safe(queens, row, col):
 
 
 def solve_nqueens(n, row=0, queens=None):
-    """Find and print all valid N Queens solutions."""
+    """Find and print all solutions."""
     if queens is None:
         queens = []
 
