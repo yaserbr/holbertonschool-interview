@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""hello"""
 
 
 def island_perimeter(grid):
+    """dz amha"""
     count = 0
 
     column = len(grid[0])
